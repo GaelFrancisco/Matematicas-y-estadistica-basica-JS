@@ -1,14 +1,16 @@
-function esPar(lista) {
+const PlatziMath = {};
+
+PlatziMath.esPar = function esPar(lista) {
     // es como si usaramos un if else; es mucho mas facil
     return !(lista.length % 2);
 }
 
-function esImpar(lista) {
+PlatziMath.esImpar = function esImpar(lista) {
     return lista.length % 2;
 }
 // arrays a partir de objetos
 // de objeto a array con objects.values(objeto): .entries(objeto) devuelve un array de arrays con las entradas del objeto
-function calcularModa(lista){
+PlatziMath.calcularModa = function calcularModa(lista){
     const listaCount = {};
 
     for (let i = 0; i < lista.length; i++) {
@@ -30,7 +32,7 @@ function calcularModa(lista){
     return moda;
 }
 
-function calcularMediana(listaDesordenada) {
+PlatziMath.calcularMediana = function calcularMediana(listaDesordenada) {
     const lista = ordenarLista(listaDesordenada);
     const listaEsPar = esPar(lista);
 
@@ -59,7 +61,7 @@ function calcularMediana(listaDesordenada) {
     }
 }
 
-function calcularPromedio(lista) { 
+PlatziMath.calcularPromedio = function calcularPromedio(lista) { 
     // let sumaLista = 0;
     // for (let i = 0; i < lista.length; i++) {
     //     sumaLista = sumaLista + lista[i];
@@ -77,7 +79,7 @@ function calcularPromedio(lista) {
     return promedio;
 }
 
-function ordenarLista(listaDesordenada) {
+PlatziMath.ordenarLista = function ordenarLista(listaDesordenada) {
     function ordenarListaSort(valorAcumulado, nuevoValor) {
     //    if (valorAcumulado > nuevoValor) {
     //     return 1;
@@ -99,7 +101,7 @@ function ordenarLista(listaDesordenada) {
     return lista;
 }
 
-function ordenarListaBidimencional(listaDesordenada, i) {
+PlatziMath.ordenarListaBidimencional = function ordenarListaBidimencional(listaDesordenada, i) {
     function ordenarListaSort(valorAcumulado, nuevoValor) {
         return valorAcumulado[i] - nuevoValor[i];
     }
