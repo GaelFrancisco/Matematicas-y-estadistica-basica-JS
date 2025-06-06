@@ -6,6 +6,29 @@ function esPar(lista) {
 function esImpar(lista) {
     return lista.length % 2;
 }
+// arrays a partir de objetos
+// de objeto a array con objects.values(objeto): .entries(objeto) devuelve un array de arrays con las entradas del objeto
+function calcularModa(lista){
+    const listaCount = {};
+
+    for (let i = 0; i < lista.length; i++) {
+        const elemento = lista[i];
+
+        if (listaCount[elemento]) {
+            listaCount[elemento] += 1;
+        } else {
+            listaCount[elemento] = 1;
+        }
+    }
+
+    const listaArray = Object.entries(listaCount);
+    const listaOrdenada = ordenarListaBidimencional(listaArray, 1);
+    const listaMaxNumber = listaOrdenada[listaOrdenada.length - 1];
+    const moda = listaMaxNumber[0];
+    // console.log({listaCount, listaArray, listaOrdenada, listaMaxNumber});
+    // console.log("la moda es " + listaMaxNumber[0]);
+    return moda;
+}
 
 function calcularMediana(listaDesordenada) {
     const lista = ordenarLista(listaDesordenada);
@@ -70,6 +93,15 @@ function ordenarLista(listaDesordenada) {
     // return 5 - 10 -> -5
     // return 5 -5 -> 0
     // return 10 - 5 -> 5
+    }
+    // const lista = listaDesordenada.sort((a, b) => a - b);
+    const lista = listaDesordenada.sort(ordenarListaSort);
+    return lista;
+}
+
+function ordenarListaBidimencional(listaDesordenada, i) {
+    function ordenarListaSort(valorAcumulado, nuevoValor) {
+        return valorAcumulado[i] - nuevoValor[i];
     }
     const lista = listaDesordenada.sort(ordenarListaSort);
     return lista;
